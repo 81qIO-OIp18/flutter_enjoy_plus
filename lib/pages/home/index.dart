@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_house_manager/pages/home/compoment/homelist.dart';
+import 'package:flutter_house_manager/pages/home/compoment/homenav.dart';
+
+
 
 class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+  const HomeView({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _HomeViewState createState() => _HomeViewState();
 }
 
@@ -12,7 +15,24 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: const Text('首页'),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("享+社区"),
+          centerTitle: true,
+        ),
+        body: ListView(
+          scrollDirection: Axis.vertical,
+          // 子组件分为三部分
+          children: [
+            // 导航组件
+            const HomeNav(),
+            Image.asset('assets/images/banner@2x.jpg'),
+            // 列表组件
+            const HomeList()
+          ],
+          // 设置列表纵向滚动
+        ),
+      ),
     );
   }
 }

@@ -1,7 +1,8 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:flutter_enjoy_plus/pages/tabs_page/index.dart';
+import 'package:flutter_house_manager/pages/tabs_page/index.dart';
+
 
 void main() {
   runApp(MaterialApp(// 运行应用

@@ -1,0 +1,55 @@
+import 'package:flutter/material.dart';
+
+class NotfyItem extends StatefulWidget {
+  const NotfyItem({Key? key,required this.item}) : super(key: key);
+  final Map item;
+
+  @override
+  _NotfyItemState createState() => _NotfyItemState();
+}
+
+class _NotfyItemState extends State<NotfyItem> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+          margin: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child:Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              widget.item["title"],
+              style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black),
+            ),
+           const SizedBox(
+              height: 10,
+            ),
+            Text(
+              widget.item["content"],
+              style: const TextStyle(
+                  fontSize: 16,
+                  color: Colors.black),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              widget.item["createAt"],
+              style: const TextStyle(
+                  fontSize: 14,
+                  color: Colors.black),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+          ],
+        ));
+  }
+}

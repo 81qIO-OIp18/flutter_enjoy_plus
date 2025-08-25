@@ -1,28 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_enjoy_plus/pages/home/index.dart';
-import 'package:flutter_enjoy_plus/pages/mine/index.dart';
+
+import '../Home/index.dart';
+import '../Mine/index.dart';
 
 class TabsPage extends StatefulWidget {
   const TabsPage({Key? key}) : super(key: key);
 
   @override
-  State<TabsPage> createState() => _TabsPageState();
+  _TabsPageState createState() => _TabsPageState();
 }
 
 class _TabsPageState extends State<TabsPage> {
-  int _currentIndex = 0;
+  int _currentIndex = 0; // 当前激活的索引
   List _tabList = [
     {
-      "label": "首页",
+      "label": '首页',
       "icon": "assets/tabs/home_default.png",
-      "activeIcon": "assets/tabs/home_active.png"
+      "active_icon": "assets/tabs/home_active.png"
     },
     {
-      "label": "我的",
-      "icon": "assets/tabs/mine_default.png",
-      "activeIcon": "assets/tabs/mine_active.png"
+      "label": '我的',
+      "icon": "assets/tabs/my_default.png",
+      "active_icon": "assets/tabs/my_active.png"
     }
   ];
+
+  // 底部tabs栏的列表方法
   List<BottomNavigationBarItem> getTabsBar() {
     // 首页的tabs 和我的tabs
     List<BottomNavigationBarItem> tabsList = [];
@@ -44,7 +47,7 @@ class _TabsPageState extends State<TabsPage> {
     return Scaffold(
       body: SafeArea(
           child: IndexedStack(
-        index: _currentIndex,
+        index: _currentIndex, // 0 => 渲染第一个组件 1 => 第二个组件
         children: const [
           HomeView(),
           MineView(),
@@ -53,7 +56,7 @@ class _TabsPageState extends State<TabsPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index) {
-          _currentIndex = index;
+          _currentIndex = index; // 数据变化了 但是UI没有更新
           setState(() {});
         },
         items: getTabsBar(),
