@@ -53,3 +53,43 @@ class _NotfyItemState extends State<NotfyItem> {
         ));
   }
 }
+// Container(
+//           margin: const EdgeInsets.all(10),
+//           padding: const EdgeInsets.all(10),
+//           decoration: BoxDecoration(
+//             color: Colors.white,
+//             borderRadius: BorderRadius.circular(10),
+//           ),
+//           child:Column(
+//             crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+//             Text(
+//               item["title"],
+//               style: const TextStyle(
+//                   fontSize: 18,
+//                   fontWeight: FontWeight.bold,
+//                   color: Colors.black),
+//             ),
+//            const SizedBox(
+//               height: 10,
+//             ),
+//             Text(
+//               item["content"],
+//               style: const TextStyle(
+//                   fontSize: 16,
+//                   color: Colors.black),
+//             ),
+//             const SizedBox(
+//               height: 10,
+//             ),
+//             Text(
+//               item["createAt"],
+//               style: const TextStyle(
+//                   fontSize: 14,
+//                   color: Colors.black),
+//             ),
+//             const SizedBox(
+//               height: 10,
+//             ),
+//           ],
+//         ));
