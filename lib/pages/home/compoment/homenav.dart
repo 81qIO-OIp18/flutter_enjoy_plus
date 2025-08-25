@@ -3,13 +3,16 @@ import 'package:flutter/material.dart';
 import '../../../components/NavCol.dart';
 
 class HomeNav extends StatefulWidget {
+  // ignore: use_super_parameters
   const HomeNav({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _HomeNavState createState() => _HomeNavState();
 }
 
 class _HomeNavState extends State<HomeNav> {
+  // ignore: prefer_final_fields
   List _navList = [
     {'title': '我的房屋', 'icon': 'assets/images/house_nav_icon@2x.png'},
     {'title': '我的保修', 'icon': 'assets/images/repair_nav_icon@2x.png'},
@@ -23,8 +26,8 @@ class _HomeNavState extends State<HomeNav> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10),
-      padding: EdgeInsets.only(top: 10, bottom: 10),
+      margin: const EdgeInsets.all(10),
+      padding: const EdgeInsets.only(top: 10, bottom: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),color: Colors.white
       ),

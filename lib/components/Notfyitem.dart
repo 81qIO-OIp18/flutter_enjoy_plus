@@ -1,10 +1,14 @@
+
+
 import 'package:flutter/material.dart';
 
 class NotfyItem extends StatefulWidget {
+  // ignore: use_super_parameters
   const NotfyItem({Key? key,required this.item}) : super(key: key);
   final Map item;
 
   @override
+  // ignore: library_private_types_in_public_api
   _NotfyItemState createState() => _NotfyItemState();
 }
 
