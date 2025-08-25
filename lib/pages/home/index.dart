@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_house_manager/pages/home/compoment/homelist.dart';
 import 'package:flutter_house_manager/pages/home/compoment/homenav.dart';
 
+import '../../api/home.dart';
+
 
 
 class HomeView extends StatefulWidget {
@@ -12,6 +14,22 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  @override
+  void initState(){
+    super.initState();
+   getAnnounceList();
+  }
+getAnnounceList()async{
+  final res =await getAnnounceListAPI();
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          content: Text(res.toString()),
+        );
+      },
+    );
+}
   @override
   Widget build(BuildContext context) {
     return Container(
