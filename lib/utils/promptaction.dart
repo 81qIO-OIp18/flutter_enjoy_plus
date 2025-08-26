@@ -7,28 +7,26 @@ class PromptAction {
     Fluttertoast.showToast(
         msg: msg,
         textColor: Colors.black,
-        backgroundColor: Color.fromARGB(255, 255, 255, 255));
+        backgroundColor: Color.fromARGB(255, 210, 207, 207));
   }
 
   // 成功消息
   static showSuccess(String msg) {
     Fluttertoast.showToast(
         msg: msg,
-        textColor: Color.fromARGB(255, 85, 238, 164),
-        backgroundColor: Colors.white);
+        textColor: Colors.white,
+        backgroundColor: Color.fromARGB(255, 85, 238, 164));
   }
 
   static showError(String msg) {
     Fluttertoast.showToast(
-        msg: msg,
-        textColor: Color.fromARGB(255, 255, 174, 108),
-        backgroundColor: Color.fromARGB(255, 255, 25, 94));
+        msg: msg, textColor: Colors.white, backgroundColor: Colors.red);
   }
 
   static showWarning(String msg) {
     Fluttertoast.showToast(
         msg: msg,
-        textColor: Color.fromARGB(31, 110, 255, 231),
-        backgroundColor: Color.fromARGB(255, 121, 255, 58));
+        textColor: Colors.black12,
+        backgroundColor: Colors.yellowAccent);
   }
 }
