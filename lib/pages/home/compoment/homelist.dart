@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_house_manager/utils/PromptAction.dart';
 import '../../../components/Notfyitem.dart';
 
 class HomeList extends StatefulWidget {
@@ -65,12 +65,18 @@ class _HomeListState extends State<HomeList> {
 
   // 获取列表渲染内容
 
-  Widget getListBuilder() {
+  Widget getListBuilder(BuildContext context) {
     return ListView(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       children: widget.list.map((item) {
-        return NotifyItem(item: item);
+        return GestureDetector(
+          child: NotifyItem(item: item),
+          onTap: () {
+            Navigator.pushNamed(context, "/noticeDetail",
+                arguments: {"id": item["id"]});
+          },
+        );
       }).toList(),
     );
   }
@@ -79,7 +85,7 @@ class _HomeListState extends State<HomeList> {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
-        children: [getTitleWidget(), getListBuilder()],
+        children: [getTitleWidget(), getListBuilder(context)],
       ),
     );
   }
