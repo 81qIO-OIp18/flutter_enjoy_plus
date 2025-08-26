@@ -1,99 +1,51 @@
-
-
 import 'package:flutter/material.dart';
 
-class NotfyItem extends StatefulWidget {
-  // ignore: use_super_parameters
-  const NotfyItem({Key? key,required this.item}) : super(key: key);
+class NotifyItem extends StatefulWidget {
+  const NotifyItem({Key? key, required this.item}) : super(key: key);
   final Map item;
-
   @override
-  // ignore: library_private_types_in_public_api
-  _NotfyItemState createState() => _NotfyItemState();
+  _NotifyItemState createState() => _NotifyItemState();
 }
 
-class _NotfyItemState extends State<NotfyItem> {
+class _NotifyItemState extends State<NotifyItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
-          margin: const EdgeInsets.all(10),
-          padding: const EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child:Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+        margin: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(10)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              widget.item["title"],
+              widget.item["title"] ?? "",
+              textAlign: TextAlign.left,
               style: const TextStyle(
-                  fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black),
-            ),
-           const SizedBox(
-              height: 10,
-            ),
-            Text(
-              widget.item["content"],
-              style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.black),
+                  color: Colors.black,
+                  fontSize: 18),
             ),
             const SizedBox(
               height: 10,
             ),
             Text(
-              widget.item["createAt"],
+              widget.item["content"] ?? "",
+              textAlign: TextAlign.left,
               style: const TextStyle(
-                  fontSize: 14,
-                  color: Colors.black),
+                  color: Color.fromARGB(255, 103, 101, 101), fontSize: 16),
             ),
             const SizedBox(
               height: 10,
             ),
+            Text(
+              widget.item["createdAt"] ?? "",
+              textAlign: TextAlign.left,
+              style: const TextStyle(
+                  color: Color.fromARGB(255, 202, 200, 200), fontSize: 14),
+            )
           ],
         ));
+    ;
   }
 }
-// Container(
-//           margin: const EdgeInsets.all(10),
-//           padding: const EdgeInsets.all(10),
-//           decoration: BoxDecoration(
-//             color: Colors.white,
-//             borderRadius: BorderRadius.circular(10),
-//           ),
-//           child:Column(
-//             crossAxisAlignment: CrossAxisAlignment.start,
-//           children: [
-//             Text(
-//               item["title"],
-//               style: const TextStyle(
-//                   fontSize: 18,
-//                   fontWeight: FontWeight.bold,
-//                   color: Colors.black),
-//             ),
-//            const SizedBox(
-//               height: 10,
-//             ),
-//             Text(
-//               item["content"],
-//               style: const TextStyle(
-//                   fontSize: 16,
-//                   color: Colors.black),
-//             ),
-//             const SizedBox(
-//               height: 10,
-//             ),
-//             Text(
-//               item["createAt"],
-//               style: const TextStyle(
-//                   fontSize: 14,
-//                   color: Colors.black),
-//             ),
-//             const SizedBox(
-//               height: 10,
-//             ),
-//           ],
-//         ));

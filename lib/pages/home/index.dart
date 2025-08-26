@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_house_manager/pages/home/compoment/homelist.dart';
 import 'package:flutter_house_manager/pages/home/compoment/homenav.dart';
 import 'package:flutter_house_manager/utils/PromptAction.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+
 import '../../api/home.dart';
 
 class HomeView extends StatefulWidget {
@@ -13,15 +15,29 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  List _list = [];
+
   @override
   void initState() {
     super.initState();
+    // 获取数据
     getAnnounceList();
   }
 
   getAnnounceList() async {
     final res = await getAnnounceListAPI();
-    Fluttertoast.showToast(msg: "获取数据成功");
+    _list = res;
+    setState(() {});
+    // 弹出res的字符串
+    // Fluttertoast.showToast(msg: "获取数据成功");
+    // showDialog(
+    //   context: context,
+    //   builder: (context) {
+    //     return AlertDialog(
+    //       content: Text(res.toString()),
+    //     );
+    //   },
+    // );
   }
 
   @override
@@ -40,7 +56,7 @@ class _HomeViewState extends State<HomeView> {
             const HomeNav(),
             Image.asset('assets/images/banner@2x.jpg'),
             // 列表组件
-            const HomeList()
+            HomeList(list: _list)
           ],
           // 设置列表纵向滚动
         ),
