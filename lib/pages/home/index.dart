@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_house_manager/pages/home/compoment/homelist.dart';
 import 'package:flutter_house_manager/pages/home/compoment/homenav.dart';
-
+import 'package:flutter_house_manager/utils/PromptAction.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import '../../api/home.dart';
-
-
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -15,21 +14,16 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   @override
-  void initState(){
+  void initState() {
     super.initState();
-   getAnnounceList();
+    getAnnounceList();
   }
-getAnnounceList()async{
-  final res =await getAnnounceListAPI();
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          content: Text(res.toString()),
-        );
-      },
-    );
-}
+
+  getAnnounceList() async {
+    final res = await getAnnounceListAPI();
+    Fluttertoast.showToast(msg: "获取数据成功");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
